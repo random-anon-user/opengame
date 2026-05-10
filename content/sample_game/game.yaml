@@ -1,0 +1,6 @@
+id: test_arcs
+title: Test Arcs
+version: 1
+start_scene: start_game
+author: opengame
+description: Testing arcs/ directory loading.

@@ -1,0 +1,34 @@
+# arcs/02_dungeon.yaml - test arc 2
+
+- id: arc2_dungeon_entrance
+  title: The Dungeon Entrance
+  steps:
+    - text: The cave mouth looms before you. Cold air rushes out.
+    - text: This is where it begins.
+    - text: |
+        You step forward into the darkness. The light behind you
+        shrinks to a pinprick, then vanishes.
+    - text: A faint glow appears ahead — torches lit by some forgotten hand.
+      next: arc2_dungeon_hall
+
+- id: arc2_dungeon_hall
+  title: The First Hall
+  steps:
+    - text: The hall stretches endlessly. Pillars rise into shadow.
+    - text: Something moves in the dark.
+    - text: You ready your weapon. Your heart pounds.
+    - text: It's just a rat the size of a dog. You dispatch it easily.
+    - text: Further in, the hall splits three ways.
+      options:
+        - text: Take the left passage
+          next: ending_victory
+        - text: Take the center passage
+          next: ending_victory
+        - text: Take the right passage
+          next: ending_victory
+
+- id: ending_victory
+  title: Victory
+  steps:
+    - text: You've made it through. Treasure glints in the torchlight.
+    - text: Another day, another dungeon. Foothold will be pleased.

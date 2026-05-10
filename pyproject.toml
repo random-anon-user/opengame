@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "opengame"
+version = "0.1.0"
+description = "A Python CLI text-based narrative game engine powered by modular YAML content."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "PyYAML>=6.0",
+    "rich>=13.0",
+    "typer>=0.12",
+    "openai>=1.0",
+    "python-dotenv>=1.0",
+    "pyperclip>=1.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+opengame = "opengame.cli:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/opengame"]

@@ -1,0 +1,31 @@
+# arcs/01_opening.yaml - test arc 1
+
+- id: start_game
+  title: The Beginning
+  steps:
+    - text: You open your eyes in a strange new world.
+    - text: Ah, you're awake. Welcome.
+      author: Pila
+    - text: She smiles warmly. You feel safe here.
+    - text: Let's get you something to eat.
+      author: Pila
+      next: visit_shop
+
+- id: visit_shop
+  title: The Market
+  steps:
+    - text: The market is bustling with merchants and adventurers.
+    - text: A girl at a weapons stall catches your eye.
+    - text: Need a blade, stranger?
+      author: Mira
+      options:
+        - text: Browse her wares
+          response:
+            text: Take your time. These are all hand-forged.
+            author: Mira
+          next: arc2_dungeon_entrance
+        - text: Ask about the dungeon
+          response:
+            text: The dungeon? You're brave. Or foolish.
+            author: Mira
+          next: arc2_dungeon_entrance
