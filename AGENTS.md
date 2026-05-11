@@ -26,6 +26,8 @@ Only `game.yaml` and `arcs/` are required. The loader prefers `arcs/` but falls 
 
 ## Arc Planning (ARC_PLANNING.md)
 
+**When starting a new story pack, ONLY create `ARC_PLANNING.md` — never write any arc YAML files, `game.yaml`, `variables.yaml`, or any other pack files in the initial request.** The initial output must be the planning document and nothing else.
+
 **Before writing any YAML files**, plan the entire story by dividing it into ARCs and save the outline to `ARC_PLANNING.md`. This ensures the full narrative is designed end-to-end before implementation begins.
 
 Define each ARC with a clear **scope** (the sequence of narrative beats it covers) and a scene count. List every scene with a descriptive paragraph of what happens.
