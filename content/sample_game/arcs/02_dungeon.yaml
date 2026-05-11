@@ -6,7 +6,7 @@
     - text: The cave mouth looms before you. Cold air rushes out.
     - text: This is where it begins.
     - text: |
-        You step forward into the darkness. The light behind you
+        You step forward into the darkness. The light behind you : 
         shrinks to a pinprick, then vanishes.
     - text: A faint glow appears ahead — torches lit by some forgotten hand.
       next: arc2_dungeon_hall

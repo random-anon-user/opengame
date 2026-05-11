@@ -87,26 +87,33 @@ A scene with a `steps` list. Each step is one screenful of narration or characte
 - id: start_game
   title: The Beginning
   steps:
-    - text: You open your eyes in a strange new world.
+    - text: |
+        You open your eyes in a strange new world.
 
-    - text: Ah, you're awake. Welcome.
+    - text: |
+        Ah, you're awake. Welcome.
       author: Pila
 
-    - text: She smiles warmly. You feel safe here.
+    - text: |
+        She smiles warmly. You feel safe here.
       options:
         - text: Thank her
           response:
-            text: Let's get you something to eat.
+            text: |
+              Let's get you something to eat.
             author: Pila
         - text: Ask where you are
           response:
-            text: This is an adventurer's town.
+            text: |
+              This is an adventurer's town.
             author: Pila
 
-    - text: Let's get you something to eat.
+    - text: |
+        Let's get you something to eat.
       author: Pila
 
-    - text: She gestures toward the market.
+    - text: |
+        She gestures toward the market.
       next: visit_shop           # chains to the next scene
 ```
 
@@ -114,7 +121,7 @@ A scene with a `steps` list. Each step is one screenful of narration or characte
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `text` | string | yes | The text displayed for this step |
+| `text` | string | yes | The text displayed for this step. Use YAML block scalar (`text: \|`) for multi-sentence text. |
 | `author` | string | no | Speaker name. Absent = narrator. |
 | `options` | list | no | Inline player choices for this step |
 | `next` | string | no | Auto-navigate to this scene ID after displaying the text |
@@ -145,9 +152,11 @@ A scene with a `steps` list. Each step is one screenful of narration or characte
 options:
   - text: Tell me more
     response:
-      - text: Well, I used to be a knight.
+      - text: |
+          Well, I used to be a knight.
         author: Mira
-      - text: But that was a long time ago.
+      - text: |
+          But that was a long time ago.
         author: Mira
 ```
 
@@ -210,30 +219,39 @@ arcs/
 - id: start_game
   title: The Beginning
   steps:
-    - text: You open your eyes in a strange new world.
-    - text: Ah, you're awake. Welcome.
+    - text: |
+        You open your eyes in a strange new world.
+    - text: |
+        Ah, you're awake. Welcome.
       author: Pila
-    - text: She smiles warmly. You feel safe here.
-    - text: Let's get you something to eat.
+    - text: |
+        She smiles warmly. You feel safe here.
+    - text: |
+        Let's get you something to eat.
       author: Pila
       next: visit_shop
 
 - id: visit_shop
   title: The Market
   steps:
-    - text: The market is bustling with merchants and adventurers.
-    - text: A girl at a weapons stall catches your eye.
-    - text: Need a blade, stranger?
+    - text: |
+        The market is bustling with merchants and adventurers.
+    - text: |
+        A girl at a weapons stall catches your eye.
+    - text: |
+        Need a blade, stranger?
       author: Mira
       options:
         - text: Browse her wares
           response:
-            text: Take your time. These are all hand-forged.
+            text: |
+              Take your time. These are all hand-forged.
             author: Mira
           next: arc2_dungeon_entrance
         - text: Ask about the dungeon
           response:
-            text: The dungeon? You're brave. Or foolish.
+            text: |
+              The dungeon? You're brave. Or foolish.
             author: Mira
           next: arc2_dungeon_entrance
 ```
@@ -293,18 +311,22 @@ Use `author` on steps to give dialogue to a character. The engine renders the sp
 ```yaml
 steps:
   # narrator — plain text
-  - text: The door creaks open. A figure steps into the light.
+  - text: |
+      The door creaks open. A figure steps into the light.
 
   # character speech — magenta name above text
-  - text: I've been waiting for you.
+  - text: |
+      I've been waiting for you.
     author: Mira
 
   # player dialogue
-  - text: I didn't mean to keep you waiting.
+  - text: |
+      I didn't mean to keep you waiting.
     author: Player
 
   # back to narrator
-  - text: She crosses her arms, sizing you up.
+  - text: |
+      She crosses her arms, sizing you up.
 ```
 
 ## Conditions And Effects
@@ -346,6 +368,7 @@ Conditions and effects can appear on flat scene choices and on stepped scene opt
 
 ### General Rules
 
+- Always use YAML block scalar syntax (`text: |`) for all text fields — step text, response text, and flat scene text. Never use inline text.
 - Prefer stepped scenes for everything. Flat scenes are for legacy compatibility only.
 - Write small, focused scenes — 10-20 steps each. One scene = one narrative beat.
 - Make branches rejoin when possible. If you split on a choice, merge back within the same arc.
